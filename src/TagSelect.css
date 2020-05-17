@@ -1,0 +1,34 @@
+.menutag{
+    width: 250px;
+    background-color: #31313D;
+    border-width: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.select1 {
+    background: rgba(75,0,130,0.8);/*背景色和透明度，可以设置为url地址的图片*/
+    width: 193px;/*宽度*/
+    height: 40px;/*高度*/
+    margin-top: 5px;/*上边距*/
+    margin-left: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.select1 select{
+    font-size: 25px;
+    background: transparent;/*透明*/
+    border: none;
+    padding-left: 10px;
+    width: 205px;/*比上面设置的略宽*/
+    height: 100%;
+    border-radius: 10px;
+    color: black;
+    font-family: "Arial";
+}
