@@ -12,20 +12,34 @@ class LeftMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataset: "",
-            testrun: "",
-            parameters: ""
+            dataset: "NASA_Ames_MOSFET_Data",
+            testrun: "Test_1_Run_1",
+            parameter: "Drain_Source_Resistance_Time"
         };
     }
     componentDidMount() {
-        axios.get("http://localhost:5000/data/supplyV").then((response) => {
+        axios.get("http://localhost:5000/test").then((response) => {
             console.log(response.data);
         });
     }
-    handleDataset(evt) {
-        console.log(evt);
-        this.setState({dataset: evt});
-        console.log("dataset: " + this.state.dataset);
+    handleDataset(event) {
+        console.log(event.target.value);
+        this.setState({dataset: event.target.value});
+    }
+    handleTestRun (event) {
+        console.log(event.target.value);
+        this.setState({testrun: event.target.value});
+    }
+    handleParameter (event) {
+        console.log(event.target.value);
+        this.setState({parameter: event.target.value});
+    }
+    getTable() {
+        axios.put("http://localhost:5000/test", "data=" + this.state.testrun).then((response) =>{
+            console.log("response", response);
+        }, (error) => {
+            console.log("error", error);
+        });
     }
     render() {
         return(
@@ -33,15 +47,17 @@ class LeftMenu extends Component {
                 <div className="menutag" id="dataset">
                     <p><font color="#C4C7D1" size="6" face="Arial"> DATASET </font></p>
 
-                    <DropdownButton id="DATASET" title="DATASET" onSelect={() => this.handleDataset()}>
-                        <Dropdown.Item eventKey="NASA_Ames_MOSFET_Data">NASA_Ames_MOSFET_Data</Dropdown.Item>
-                    </DropdownButton>
+                    <div className="select1">
+                        <select name = "datasetSelect" id="datasetSelect" onChange={this.handleDataset.bind(this)}>
+                            <option value ="NASA_Ames_MOSFET_Data">NASA_Ames_MOSFET_Data</option>
+                        </select>
+					</div>
                 </div>
 
                 <div className="menutag" id="testRun">
                     <p><font color="#C4C7D1" size="6" face="Arial"> TEST & RUN </font></p>
                     <div className="select1">
-                        <select name="testRunSelect" id="testRunSelect">
+                        <select name="testRunSelect" id="testRunSelect" onChange={this.handleTestRun.bind(this)}>
                             <option value ="Test_1_Run_1">MOSFET_#1</option>
                             <option value ="Test_2_Run_1">MOSFET_#2</option>
                             <option value ="Test_3_Run_1">MOSFET_#3</option>
@@ -56,10 +72,18 @@ class LeftMenu extends Component {
                         </select>
                     </div>
                 </div>
-                <Parameters />
+                
+                <div className="menutag" id="parameters">
+                    <p><font color="#C4C7D1" size="6" face="Arial"> PARAMETERS </font></p>
+                    <div className="select1">
+                        <select name="parametersSelect" id="parametersSelect" onChange={this.handleParameter.bind(this)}>
+                            <option value ="Drain_Source_Resistance_Time">Drain_Source_Resistance_Time</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div id="blastoff">
-                    <button name="button" id="button" value="" />
+                    <button name="button" id="button" value="" onClick={this.getTable.bind(this)}/>
                 </div>                        
 
                 <div id="rocket">
