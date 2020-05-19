@@ -1,9 +1,6 @@
 import React, {Component} from "react"
 import axios from "axios"
 import "./LeftMenu.css"
-import Dataset from "./Dataset"
-import TestRun from "./TestRun"
-import Parameters from "./Parameters"
 
 import { Button, DropdownButton, MenuItem, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
