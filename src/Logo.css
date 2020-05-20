@@ -1,24 +1,4 @@
-#logo{
-        width: 1300px;
-        height: 150px;
-        background-color: #202028;
-        text-align: center;
-    }
-#lm{
-    width: 280px;
-    height: 100px;
-    float: left;
-    text-align: center;
-}
-#title{
-    width: 750px;
-    height: 100px;
-    float: left;
-    text-align: center;
-}
-#uw{
-    width: 230px;
-    height: 100px;
-    float: left;
-    text-align: center;
+.row1{
+    padding: 30px 0px;
+    color: white;
 }

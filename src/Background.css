@@ -1,9 +1,3 @@
-#background{
-    background-color: #000000;
-}
-#father{
-    width: 1300px;
-    height: 828px;
-    margin: auto;
-    background-color: #181820;
+.col1 {
+    margin: 0px -15px;
 }
