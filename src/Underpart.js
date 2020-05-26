@@ -9,7 +9,7 @@ function Underpart() {
     return (
         <Container fluid>
             <Row className="row1">
-                <Col lg={{span: 2}} className="underpartcol1 d-none d-lg-block">
+                <Col lg={{span: 2}} className="underpartcol1 d-none d-xl-block">
                     <LeftMenu />
                 </Col>
                 <Col lg={{span: 9}}>

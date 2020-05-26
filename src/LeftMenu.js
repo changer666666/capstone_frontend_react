@@ -10,23 +10,39 @@ class LeftMenu extends Component {
         this.state = {
             dataset: "NASA_Ames_MOSFET_Data",
             testrun: "Test_1_Run_1",
-            parameter: "Drain_Source_Resistance_Time"
+            parameter: "Drain_Source_Resistance_Time",
+            selectedOption: 'vanilla',
+            datasetOptions: [],
+            testRunOptions: [],
+            parametersOptions: []
         };
     }
     componentDidMount() {
-        axios.get("http://localhost:5000/test").then((response) => {
-            console.log(response.data);
+        axios.get("http://localhost:5000/datasetOptions").then((response) => {
+            console.log(response.data.datasetOptions.datasetList);
+            this.setState({datasetOptions: response.data.datasetOptions.datasetList});
+            console.log(this.state.datasetOptions);
+        });
+        axios.get("http://localhost:5000/testRunOptions").then((response) => {
+            console.log(response.data.testRunOptions.testRunList);
+            this.setState({testRunOptions: response.data.testRunOptions.testRunList});
+            console.log(this.state.testRunOptions);
+        });
+        axios.get("http://localhost:5000/parametersOptions").then((response) => {
+            console.log(response.data.parametersOptions.parametersList);
+            this.setState({parametersOptions: response.data.parametersOptions.parametersList});
+            console.log(this.state.parametersOptions);
         });
     }
     handleDataset(event) {
         console.log(event.target.value);
         this.setState({dataset: event.target.value});
     }
-    handleTestRun (event) {
+    handleTestRun(event) {
         console.log(event.target.value);
         this.setState({testrun: event.target.value});
     }
-    handleParameter (event) {
+    handleParameter(event) {
         console.log(event.target.value);
         this.setState({parameter: event.target.value});
     }
@@ -37,58 +53,69 @@ class LeftMenu extends Component {
             console.log("error", error);
         });
     }
+    handleChange = selectedOption => {
+        this.setState(
+          { selectedOption },
+          () => console.log(`Option selected:`, selectedOption)
+        );
+    }
+    handleChange = selectedOption => {
+        this.setState({ selectedOption });
+        console.log(`Option selected:`, selectedOption);
+    };
     render() {
         return(
             <Container fluid style={{backgroundColor: "#202028"}}>
-                <Row className="row1">
+                <Row>
                     <Col>
-                        <div className="menutag" id="dataset">
-                            <p><font color="#C4C7D1" size="6" face="Arial"> DATASET </font></p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </Col>
+                </Row>
+                <Row className="menuRow">
+                    <Col className="menutag" id="dataset">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#C4C7D1" size="6" face="Arial"> DATASET </font></p>
 
-                            <div className="select1">
-                                <select name = "datasetSelect" id="datasetSelect" onChange={this.handleDataset.bind(this)}>
-                                    <option value ="NASA_Ames_MOSFET_Data">NASA_Ames_MOSFET_Data</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="menutag" id="testRun">
-                            <p><font color="#C4C7D1" size="6" face="Arial"> TEST & RUN </font></p>
-                            <div className="select1">
-                                <select name="testRunSelect" id="testRunSelect" onChange={this.handleTestRun.bind(this)}>
-                                    <option value ="Test_1_Run_1">MOSFET_#1</option>
-                                    <option value ="Test_2_Run_1">MOSFET_#2</option>
-                                    <option value ="Test_3_Run_1">MOSFET_#3</option>
-                                    <option value ="Test_4_Run_1">MOSFET_#4</option>
-                                    <option value ="Test_5_Run_1">MOSFET_#5</option>
-                                    <option value ="Test_6_Run_1">MOSFET_#6</option>
-                                    <option value ="Test_7_Run_1">MOSFET_#7</option>
-                                    <option value ="Test_8_Run_1">MOSFET_#8</option>
-                                    <option value ="Test_9_Run_1">MOSFET_#9</option>
-                                    <option value ="Test_10_Run_1">MOSFET_#10</option>
-                                    <option value ="Test_36_Run_1">MOSFET_#36</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div className="menutag" id="parameters">
-                            <p><font color="#C4C7D1" size="6" face="Arial"> PARAMETERS </font></p>
-                            <div className="select1">
-                                <select name="parametersSelect" id="parametersSelect" onChange={this.handleParameter.bind(this)}>
-                                    <option value ="Drain_Source_Resistance_Time">Drain_Source_Resistance_Time</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div id="blastoff">
-                            <button name="button" id="button" value="" onClick={this.getTable.bind(this)}/>
-                        </div>                        
-
-                        <div id="rocket">
-                            <img src="rocket.png" alt="" width = "50px" height="90px"/>
+                        <div className="select1">
+                            <select name = "datasetSelect" id="datasetSelect" onChange={this.handleDataset.bind(this)}>
+                                {this.state.datasetOptions.map((option) => (
+                                    <option value = {option.value} > {option.label} </option>
+                                ))}
+                            </select>
                         </div>
                     </Col>
                 </Row>
+                <Row className="menuRow">
+                    <Col className="menutag" id="testRun">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#C4C7D1" size="6" face="Arial"> TEST & RUN </font></p>
+                        <div className="select1">
+                            <select name="testRunSelect" id="testRunSelect" onChange={this.handleTestRun.bind(this)}>
+                                {this.state.testRunOptions.map((option) => (
+                                    <option value = {option.value} > {option.label} </option>
+                                ))}
+                            </select>
+                        </div>
+                    </Col>
+                </Row>
+                <Row className="menuRow">
+                    <Col className="menutag" id="parameters">
+                        <p>&nbsp;&nbsp;<font color="#C4C7D1" size="6" face="Arial"> PARAMETERS </font></p>
+                        <div className="select1">
+                            <select name="parametersSelect" id="parametersSelect" onChange={this.handleParameter.bind(this)}>
+                                {this.state.parametersOptions.map((option) => (
+                                    <option value = {option.value} > {option.label} </option>
+                                ))}
+                            </select>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col id="blastoff" lg={{span: 8}} >
+                        <button name="button" id="button" value="" onClick={this.getTable.bind(this)}/>   
+                    </Col>                   
+                    <Col id="rocket" lg={{span: 4}} className="d-none d-xl-block">
+                        <img src="rocket.png" alt="" width = "50px" height="90px"/>
+                    </Col>
+                </Row> 
             </Container>
         )
     }
