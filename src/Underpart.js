@@ -5,18 +5,34 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Underpart.css"
 import { Container, Row, Col} from "react-bootstrap";
 
-function Underpart() {
-    return (
-        <Container fluid>
-            <Row className="row1">
-                <Col lg={{span: 2}} className="underpartcol1 d-none d-xl-block">
-                    <LeftMenu />
-                </Col>
-                <Col lg={{span: 9}}>
-                    <RightTable />
-                </Col>
-            </Row>
-        </Container>
-    )
+class Underpart extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            imageId : 1
+        }
+    }
+
+    render() {
+        return (
+            <Container fluid>
+                <Row className="row1">
+                    <Col lg={{span: 2}} className="underpartcol1 d-none d-xl-block">
+                        <LeftMenu fun={this.getImageId}/>
+                    </Col>
+                    <Col lg={{span: 6}}>
+                        <RightTable imageId={this.state.imageId}/>
+                    </Col>
+                </Row>
+            </Container>
+        )
+    }
+
+    getImageId = (imageId) => {
+        this.setState({ imageId: imageId });
+        console.log("in Underpart ", this.state.imageId);
+    }
+
 }
+
 export default Underpart

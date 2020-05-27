@@ -47,11 +47,15 @@ class LeftMenu extends Component {
         this.setState({parameter: event.target.value});
     }
     getTable() {
-        axios.put("http://localhost:5000/test", "data=" + this.state.testrun).then((response) =>{
-            console.log("response", response);
-        }, (error) => {
-            console.log("error", error);
-        });
+        // axios.put("http://localhost:5000/test", "data=" + this.state.testrun).then((response) =>{
+        //     console.log("response", response);
+        // }, (error) => {
+        //     console.log("error", error);
+        // });
+
+        //send image id back to Underpart component
+        // console.log(this.state.testrun);
+        this.props.fun(this.state.testrun);
     }
     handleChange = selectedOption => {
         this.setState(
@@ -98,7 +102,7 @@ class LeftMenu extends Component {
                 </Row>
                 <Row className="menuRow">
                     <Col className="menutag" id="parameters">
-                        <p>&nbsp;&nbsp;<font color="#C4C7D1" size="6" face="Arial"> PARAMETERS </font></p>
+                        <p>&nbsp;<font color="#C4C7D1" size="6" face="Arial"> PARAMETERS </font></p>
                         <div className="select1">
                             <select name="parametersSelect" id="parametersSelect" onChange={this.handleParameter.bind(this)}>
                                 {this.state.parametersOptions.map((option) => (
