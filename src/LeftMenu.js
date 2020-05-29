@@ -9,9 +9,8 @@ class LeftMenu extends Component {
         super(props);
         this.state = {
             dataset: "NASA_Ames_MOSFET_Data",
-            testrun: "Test_1_Run_1",
+            testrun: "1",
             parameter: "Drain_Source_Resistance_Time",
-            selectedOption: 'vanilla',
             datasetOptions: [],
             testRunOptions: [],
             parametersOptions: []

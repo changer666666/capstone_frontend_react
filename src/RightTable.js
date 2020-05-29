@@ -4,32 +4,31 @@ import "./RightTable.css"
 
 import { Container, Row, Col} from "react-bootstrap";
 
+function Trim(str){ 
+  return str.replace(/(^\s*)|(\s*$)/g, ""); 
+}
+
 class RightTable extends React.Component {
-    state = {
-        id: 1
-    };
     constructor(props) {
         super(props);
-        this.setState({id: props.imageId});
+        this.state = {
+            imageId : "1"
+        }
     }
     componentWillReceiveProps(nextProps) {
-        if (this.state.id != nextProps.imageId) {
+        if (this.props.imageId !== nextProps.imageId) {
             console.log("in Righttable componentWillReceiveProps", nextProps.imageId);
-            this.setState({id: nextProps.imageid});
-            console.log("in Righttable", this.state.id);
-            this.render();
+            this.state.imageId = nextProps.imageId;
+            // this.setState({ imageId: nextProps.imageid });
+            console.log("in Righttable", this.state.imageId);
         } 
     }
-
     render() {
         return (
             <Container fluid>
                 <Row id="righttable">               
                     <Col id="rocket" >
-                        <img src={"RUL_" + this.state.id + ".png"}  alt="RUL image"/>
-                    </Col>
-                    <Col>
-                        <h1 color="white">{this.state.id}</h1>
+                        <img src={"RUL_" + this.state.imageId + ".png"}  alt="RUL"/>
                     </Col>
                 </Row> 
             </Container>
