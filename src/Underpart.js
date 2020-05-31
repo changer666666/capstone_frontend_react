@@ -17,10 +17,12 @@ class Underpart extends React.Component {
         return (
             <Container fluid>
                 <Row className="row1">
-                    <Col lg={{span: 2}} className="underpartcol1 d-none d-xl-block">
+                    <Col className="underpartcol1 d-none d-xl-block">
                         <LeftMenu fun={this.getImageId}/>
                     </Col>
-                    <Col lg={{span: 6}}>
+                </Row>
+                <Row className="row1">
+                    <Col>
                         <RightTable imageId={this.state.imageId}/>
                     </Col>
                 </Row>
@@ -32,7 +34,6 @@ class Underpart extends React.Component {
         this.setState({ imageId: imageId });
         console.log("in Underpart ", this.state.imageId);
     }
-
 }
 
 export default Underpart

@@ -12,8 +12,7 @@ class LeftMenu extends Component {
             testrun: "1",
             parameter: "Drain_Source_Resistance_Time",
             datasetOptions: [],
-            testRunOptions: [],
-            parametersOptions: []
+            testRunOptions: []
         };
     }
     componentDidMount() {
@@ -27,11 +26,6 @@ class LeftMenu extends Component {
             this.setState({testRunOptions: response.data.testRunOptions.testRunList});
             console.log(this.state.testRunOptions);
         });
-        axios.get("http://localhost:5000/parametersOptions").then((response) => {
-            console.log(response.data.parametersOptions.parametersList);
-            this.setState({parametersOptions: response.data.parametersOptions.parametersList});
-            console.log(this.state.parametersOptions);
-        });
     }
     handleDataset(event) {
         console.log(event.target.value);
@@ -40,10 +34,6 @@ class LeftMenu extends Component {
     handleTestRun(event) {
         console.log(event.target.value);
         this.setState({testrun: event.target.value});
-    }
-    handleParameter(event) {
-        console.log(event.target.value);
-        this.setState({parameter: event.target.value});
     }
     getTable() {
         // axios.put("http://localhost:5000/test", "data=" + this.state.testrun).then((response) =>{
@@ -69,15 +59,12 @@ class LeftMenu extends Component {
     render() {
         return(
             <Container fluid style={{backgroundColor: "#202028"}}>
-                <Row>
-                    <Col>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </Col>
-                </Row>
                 <Row className="menuRow">
-                    <Col className="menutag" id="dataset">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#C4C7D1" size="6" face="Arial"> DATASET </font></p>
-
+                    <Col className="menutag" id="dataset" lg={{span: 2, offset: 1}}>
+                        <p><font color="#C4C7D1" size="6" face="Arial"> DATASET </font></p>
+                        
+                    </Col>
+                    <Col className="menutag" id="dataset" lg={{span: 2}}>
                         <div className="select1">
                             <select name = "datasetSelect" id="datasetSelect" onChange={this.handleDataset.bind(this)}>
                                 {this.state.datasetOptions.map((option) => (
@@ -86,10 +73,11 @@ class LeftMenu extends Component {
                             </select>
                         </div>
                     </Col>
-                </Row>
-                <Row className="menuRow">
-                    <Col className="menutag" id="testRun">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#C4C7D1" size="6" face="Arial"> TEST & RUN </font></p>
+
+                    <Col className="menutag" id="testRun" lg={{span: 2}}>
+                        <p><font color="#C4C7D1" size="6" face="Arial"> TEST & RUN </font></p>
+                    </Col>
+                    <Col className="menutag" id="testRun" lg={{span: 2}}>
                         <div className="select1">
                             <select name="testRunSelect" id="testRunSelect" onChange={this.handleTestRun.bind(this)}>
                                 {this.state.testRunOptions.map((option) => (
@@ -98,25 +86,9 @@ class LeftMenu extends Component {
                             </select>
                         </div>
                     </Col>
-                </Row>
-                <Row className="menuRow">
-                    <Col className="menutag" id="parameters">
-                        <p>&nbsp;<font color="#C4C7D1" size="6" face="Arial"> PARAMETERS </font></p>
-                        <div className="select1">
-                            <select name="parametersSelect" id="parametersSelect" onChange={this.handleParameter.bind(this)}>
-                                {this.state.parametersOptions.map((option) => (
-                                    <option value = {option.value} > {option.label} </option>
-                                ))}
-                            </select>
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col id="blastoff" lg={{span: 8}} >
+
+                    <Col id="blastoff" lg={{span: 2}} >
                         <button name="button" id="button" value="" onClick={this.getTable.bind(this)}/>   
-                    </Col>                   
-                    <Col id="rocket" lg={{span: 4}} className="d-none d-xl-block">
-                        <img src="rocket.png" alt="" width = "50px" height="90px"/>
                     </Col>
                 </Row> 
             </Container>

@@ -1,14 +1,5 @@
-#underpartcontent{
-    width: 1240px;
-    height: 580px;
-    margin: auto;
-    background-color: #181820;
-}
-
-.row1{
-    color: white
-}
 
 .underpartcol1{
-    margin: -15px 0px 30px 30px;
+    margin-left: -15px;
+    margin-right: -15px;
 }
