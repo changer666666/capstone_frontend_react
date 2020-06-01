@@ -22,7 +22,7 @@ class Underpart extends React.Component {
                     </Col>
                 </Row>
                 <Row className="row1">
-                    <Col>
+                    <Col lg={{span: 6}}>
                         <RightTable imageId={this.state.imageId}/>
                     </Col>
                 </Row>

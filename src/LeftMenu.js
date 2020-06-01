@@ -1,8 +1,8 @@
 import React, {Component} from "react"
 import axios from "axios"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./LeftMenu.css"
 import { Container, Row, Col} from 'react-bootstrap';
+import "./LeftMenu.css"
 
 class LeftMenu extends Component {
     constructor(props) {
@@ -60,35 +60,59 @@ class LeftMenu extends Component {
         return(
             <Container fluid style={{backgroundColor: "#202028"}}>
                 <Row className="menuRow">
-                    <Col className="menutag" id="dataset" lg={{span: 2, offset: 1}}>
-                        <p><font color="#C4C7D1" size="6" face="Arial"> DATASET </font></p>
-                        
-                    </Col>
-                    <Col className="menutag" id="dataset" lg={{span: 2}}>
-                        <div className="select1">
-                            <select name = "datasetSelect" id="datasetSelect" onChange={this.handleDataset.bind(this)}>
-                                {this.state.datasetOptions.map((option) => (
-                                    <option value = {option.value} > {option.label} </option>
-                                ))}
-                            </select>
+                    <Col lg={{span: 4, offset: 1}}>
+                        <div className="numberStyle menutag">
+                            <img src="number1.png" width="30px" height="30px"></img>
+                        </div>
+                        <div className="menutag">
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                        </div>
+                        <div className="menutag" id="dataset">
+                            <p><font color="#C4C7D1" size="6" face="Arial" > DATASET </font></p>
+                        </div>
+                        <div className="menutag" id="dataset">
+                            <div className="select1">
+                                <select name = "datasetSelect" id="datasetSelect" onChange={this.handleDataset.bind(this)}>
+                                    {this.state.datasetOptions.map((option) => (
+                                        <option value = {option.value} > {option.label} </option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
                     </Col>
 
-                    <Col className="menutag" id="testRun" lg={{span: 2}}>
-                        <p><font color="#C4C7D1" size="6" face="Arial"> TEST & RUN </font></p>
-                    </Col>
-                    <Col className="menutag" id="testRun" lg={{span: 2}}>
-                        <div className="select1">
-                            <select name="testRunSelect" id="testRunSelect" onChange={this.handleTestRun.bind(this)}>
-                                {this.state.testRunOptions.map((option) => (
-                                    <option value = {option.value} > {option.label} </option>
-                                ))}
-                            </select>
+                    <Col lg={{span: 4}}>
+                        <div className="numberStyle menutag">
+                            <img src="number2.png" width="30px" height="30px"></img>
+                        </div>
+                        <div className="menutag">
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                        </div>
+                        <div className="menutag" id="testRun">
+                            <p><font color="#C4C7D1" size="6" face="Arial"> TEST&RUN </font></p>
+                        </div>
+                        <div className="menutag" id="testRun">
+                            <div className="select1">
+                                <select name="testRunSelect" id="testRunSelect" onChange={this.handleTestRun.bind(this)}>
+                                    {this.state.testRunOptions.map((option) => (
+                                        <option value = {option.value} > {option.label} </option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
                     </Col>
 
-                    <Col id="blastoff" lg={{span: 2}} >
-                        <button name="button" id="button" value="" onClick={this.getTable.bind(this)}/>   
+
+                    <Col lg={{span: 3}}>
+                        <div className="numberStyle menutag">
+                            <img src="number3.png" width="30px" height="30px"></img>
+                        </div>
+                        <div className="menutag">
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                        </div>
+                        <div className="menutag" id="blastoff" >
+                            <button name="button" id="button" value="" onClick={this.getTable.bind(this)}/>   
+                        </div>
                     </Col>
                 </Row> 
             </Container>

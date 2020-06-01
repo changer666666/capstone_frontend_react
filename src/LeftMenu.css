@@ -1,15 +1,7 @@
-#blastoff{
-    margin-top: 10px;
-    width: 120px;
-    height: 80px;
-}
-#rocket{
-    margin-top: 20px;
-}
 #button{
     background:url("blast_off.png") no-repeat;
-    width: 120px;
-    height: 80px;
+    width: 230px;
+    height: 50px;
     border:0px;
     cursor:pointer;
     background-size: 100%;
@@ -17,23 +9,27 @@
 
 
 .menuRow{
-    background-color: #31313D;
+    /* background-color: #31313D; */
+    background: linear-gradient(90deg, rgba(90,29,157,1) 0%, rgba(18,60,140,1) 100%);
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 1px;
     margin-right: 1px;
     
     
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: -5px;
+    padding-right: -5px;
+
+    height: 60px;
 }
 
 .select1 {
-    background: rgba(75,0,130,0.8);/*背景色和透明度，可以设置为url地址的图片*/
-    width: 193px;/*宽度*/
+    background: rgba(32,32,40,1);/*背景色和透明度，可以设置为url地址的图片*/
+    width: 255px;/*宽度*/
     height: 40px;/*高度*/
-    margin-top: 5px;/*上边距*/
+    margin-top: 1px;/*上边距*/
     margin-left: 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -43,9 +39,32 @@
     background: transparent;/*透明*/
     border: none;
     padding-left: 10px;
-    width: 205px;/*比上面设置的略宽*/
+    width: 260px;/*比上面设置的略宽*/
     height: 100%;
     border-radius: 10px;
-    color: black;
+    color: #A3A8B6;
     font-family: "Arial";
+}
+
+.numberStyle{
+    padding-top: 5px;
+}
+
+.menutag{
+    float: left;
+	text-align: center;
+}
+
+.container-fluid{
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: -15px;
+    padding-right: 15px;
+}
+
+.container-fluid .col{
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: -15px;
+    padding-right: -15px;
 }
