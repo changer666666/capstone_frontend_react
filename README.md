@@ -1,4 +1,4 @@
-Running Steps:
+## Running Steps:
 1. Running python server. Git repo: [capstone_backend_restful](https://github.com/changer666666/capstone_backend_restful)
 ### `python ./server_restful.py`
 
