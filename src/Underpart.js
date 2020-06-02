@@ -15,7 +15,7 @@ class Underpart extends React.Component {
 
     render() {
         return (
-            <Container fluid>
+            <Container fluid style={{ margiLeft: 0, marginRight: 0, paddingLeft: 0, paddingRight: 0 }}>
                 <Row className="row1">
                     <Col className="underpartcol1 d-none d-xl-block">
                         <LeftMenu fun={this.getImageId}/>

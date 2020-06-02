@@ -58,7 +58,7 @@ class LeftMenu extends Component {
     };
     render() {
         return(
-            <Container fluid style={{backgroundColor: "#202028"}}>
+            <Container fluid style={{backgroundColor: "#202028", margiLeft: 0, marginRight: 0, paddingLeft: 0, paddingRight: 0 }}>
                 <Row className="menuRow">
                     <Col lg={{span: 4, offset: 1}}>
                         <div className="numberStyle menutag">

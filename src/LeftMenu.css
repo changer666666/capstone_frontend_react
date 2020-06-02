@@ -54,17 +54,3 @@
     float: left;
 	text-align: center;
 }
-
-.container-fluid{
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-left: -15px;
-    padding-right: 15px;
-}
-
-.container-fluid .col{
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-left: -15px;
-    padding-right: -15px;
-}
