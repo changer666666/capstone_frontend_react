@@ -62,7 +62,7 @@ class LeftMenu extends Component {
                 <Row className="menuRow">
                     <Col lg={{span: 4, offset: 1}}>
                         <div className="numberStyle menutag">
-                            <img src="number1.png" width="30px" height="30px"></img>
+                            <img src="number1.png" width="30px" height="30px" alt="number1"></img>
                         </div>
                         <div className="menutag">
                             <p>&nbsp;&nbsp;&nbsp;</p>
@@ -83,7 +83,7 @@ class LeftMenu extends Component {
 
                     <Col lg={{span: 4}}>
                         <div className="numberStyle menutag">
-                            <img src="number2.png" width="30px" height="30px"></img>
+                            <img src="number2.png" width="30px" height="30px" alt="number2"></img>
                         </div>
                         <div className="menutag">
                             <p>&nbsp;&nbsp;&nbsp;</p>
@@ -105,7 +105,7 @@ class LeftMenu extends Component {
 
                     <Col lg={{span: 3}}>
                         <div className="numberStyle menutag">
-                            <img src="number3.png" width="30px" height="30px"></img>
+                            <img src="number3.png" width="30px" height="30px"  alt="number3"></img>
                         </div>
                         <div className="menutag">
                             <p>&nbsp;&nbsp;&nbsp;</p>

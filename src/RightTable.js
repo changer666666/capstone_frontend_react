@@ -10,7 +10,7 @@ class RightTable extends React.Component {
         super(props);
         this.state = {
             imageId : "1",
-            source: ""
+            source: "placeholder.gif"
         }
     }
     componentWillReceiveProps(nextProps) {
