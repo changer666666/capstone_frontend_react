@@ -1,3 +1,17 @@
+Running Steps:
+1. Running python server. Git repo: [capstone_backend_restful](https://github.com/changer666666/capstone_backend_restful)
+### `python ./server_restful.py`
+
+2. Running storybook, using by vega react. Input the following command line in your IDE console:
+### `npm run storybook`
+
+3. Running React App. Open a new console in your IDE. Input this command line:
+### `npm start`
+
+4. Enjoy your time.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
