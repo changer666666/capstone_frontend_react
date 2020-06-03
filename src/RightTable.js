@@ -22,7 +22,8 @@ class RightTable extends React.Component {
         this.state = {
             imageId : "1",
             source: "placeholder.gif",
-            data: data1,
+            data: "",
+            // data: data1,
             info: '',
             spec: spec1,
         };
@@ -68,7 +69,7 @@ class RightTable extends React.Component {
             // // this.setState({ imageId: nextProps.imageid });
             // console.log("in Righttable", this.state.imageId);
         
-            axios.get("http://localhost:5000/mosfet/" + nextProps.imageId, { responseType: 'arraybuffer' }).then((response) => {
+            axios.get("http://localhost:5000/mosfetImage/" + nextProps.imageId, { responseType: 'arraybuffer' }).then((response) => {
                 const base64 = btoa(
                     new Uint8Array(response.data).reduce(
                       (data, byte) => data + String.fromCharCode(byte),
@@ -76,6 +77,12 @@ class RightTable extends React.Component {
                     ),
                 );
                 this.setState({ source: "data:;base64," + base64 });
+            });
+
+            axios.get("http://localhost:5000/mosfetJson/" + nextProps.imageId).then((response) => {
+                console.log(response.data);
+                this.setState({data: response.data});
+                console.log(this.state.data);
             });
         }
     }
@@ -85,7 +92,7 @@ class RightTable extends React.Component {
             <Container fluid style={{ margiLeft: 0, marginRight: 0, paddingLeft: 0, paddingRight: 0 }}>
                 <Row id="righttable">               
                     <Col id="table" lg={{span: 5, offset: 2}}>
-                        <div style={{ float: 'right' }}>
+                        {/* <div style={{ float: 'right' }}>
                             <iframe
                                 title="star"
                                 src="https://ghbtns.com/github-btn.html?user=vega&repo=react-vega&type=star&count=true"
@@ -104,18 +111,18 @@ class RightTable extends React.Component {
                         <h3>
                             <code>&lt;Vega&gt;</code> React Component
                         </h3>
-                        Will recompile when spec changes and update when data changes.
+                        Will recompile when spec changes and update when data changes. */}
                         <pre>{code1}</pre>
                         <Vega data={data} spec={spec} signalListeners={this.handlers} />
-                        <h3>
+                        {/* <h3>
                             <code>ReactVega.createClassFromSpec()</code>
                         </h3>
-                        Use the given spec to create a reusable component.
+                        Use the given spec to create a reusable component. */}
                         <pre>{code2}</pre>
                         <BarChart data={data} signalListeners={this.handlers} />
-                        <div>
+                        {/* <div>
                             Hover info: <code>{info}</code>
-                        </div>
+                        </div> */}
                     </Col>
 
                     <Col id="table" lg={{span: 2, offset: 3}}>
